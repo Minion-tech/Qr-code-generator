@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code generator</title>
+    <style>
+        body, html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container {
+            display: flex;
+            flex-direction:column;
+            background-color: pink;
+            justify-content: center; /*horizontally*/
+            align-items: center;
+            height: 100%;
+        }
+        .input{
+            background-color: white;
+            text-align: center;
+            align-items: center;
+            padding: 50px 100px;
+            position:relative;
+            border: 5px solid black;
+            border-radius: 20px;
+        }
+        p{
+           font-size: 200%
+        }
+        button{
+            background-color: white;
+            height: 50px;
+            width: 250px;
+            border-radius: 20px;
+        }
+        input{
+            height:50px;
+            width: 250px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <p>Qr code generate</p>
+            <input type="text" id="imputtext" placeholder = "enter the url"><br><br>
+            <button onclick="generate()">Generate Qr</button>
+        </div>
+        <div class="qr">
+            <div class="img">
+                <img src="" id = "imgqr"><br><br>
+            </div>
+        </div>
+    </div>
+    <script>
+            let api = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data"
+            let inputtext = document.getElementById("inputtext")
+            let img = document.getElementById("imgqr");
+
+            function generate(){
+                img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + imputtext
+            }
+        
+    </script>
+</body>
+</html>
